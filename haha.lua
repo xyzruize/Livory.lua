@@ -7197,7 +7197,7 @@ function Library:CreateWindow(...)
         return Dialog
     end
 
-    function Window:AddTab(Name)
+    function Window:AddTab(Name, Icon)
         local Tab = {
             Groupboxes = {};
             Tabboxes = {};
