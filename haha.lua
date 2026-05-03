@@ -6614,22 +6614,22 @@ function Library:CreateWindow(...)
     })
 
     local TabArea = Library:Create("ScrollingFrame", {
-        ScrollingDirection = Enum.ScrollingDirection.Y;
+        ScrollingDirection = Enum.ScrollingDirection.X;
         CanvasSize = UDim2.new(0, 0, 0, 0);
-        AutomaticCanvasSize = Enum.AutomaticSize.Y;
+        AutomaticCanvasSize = Enum.AutomaticSize.X;
         ScrollBarThickness = 0;
         BackgroundTransparency = 1;
-        Position = UDim2.new(0, 0, 0, 0);
-        Size = UDim2.new(0, 80, 1, 0);
+        Position = UDim2.new(0, 8 - WindowInfo.TabPadding, 1, -26);
+        Size = UDim2.new(1, -10, 0, 26);
         ZIndex = 1;
         Parent = MainSectionInner;
     })
 
     local TabListLayout = Library:Create("UIListLayout", {
         Padding = UDim.new(0, WindowInfo.TabPadding);
-        FillDirection = Enum.FillDirection.Vertical;
+        FillDirection = Enum.FillDirection.Horizontal;
         SortOrder = Enum.SortOrder.LayoutOrder;
-        HorizontalAlignment = Enum.HorizontalAlignment.Center;
+        VerticalAlignment = Enum.VerticalAlignment.Center;
         Parent = TabArea;
     })
 
@@ -6655,8 +6655,8 @@ function Library:CreateWindow(...)
     local TabContainer = Library:Create("Frame", {
         BackgroundColor3 = Library.MainColor;
         BorderColor3 = Library.OutlineColor;
-        Position = UDim2.new(0, 80, 0, 8);
-        Size = UDim2.new(1, -88, 1, -16);
+        Position = UDim2.new(0, 8, 0, 8);
+        Size = UDim2.new(1, -16, 1, -42);
         ZIndex = 2;
         Parent = MainSectionInner;
     })
@@ -7220,7 +7220,7 @@ function Library:CreateWindow(...)
         local TabButton = Library:Create("Frame", {
             BackgroundColor3 = Library.BackgroundColor;
             BorderColor3 = Library.OutlineColor;
-            Size = UDim2.new(1, 0, 0, 24);
+            Size = UDim2.new(0, TabButtonWidth + 8 + 4, 0.85, 0);
             ZIndex = 1;
             Parent = TabArea;
         })
@@ -7528,7 +7528,7 @@ end
 
                 local TabButtonWidth = Library:GetTextBounds(Tab.Name, Library.Font, 16)
 
-                TabButton.Size = UDim2.new(1, 0, 0, 24)
+                TabButton.Size = UDim2.new(0, TabButtonWidth + 8 + 4, 0.85, 0)
                 TabButtonLabel.Text = Tab.Name
             end
         end
